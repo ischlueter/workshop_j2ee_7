@@ -1,7 +1,5 @@
 package de.dpunkt.myaktion.controller;
 
-import de.dpunkt.myaktion.model.Donation.Status;
-
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;

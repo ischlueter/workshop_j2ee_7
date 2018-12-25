@@ -17,8 +17,6 @@ public class ListCampaignsController implements Serializable {
     @Inject
     private CampaignProducer campaignProducer;
 
-    private Campaign campaignToDelete;
-
     public String doAddCampaign() {
         campaignProducer.prepareAddCampaign();
         return Pages.EDIT_CAMPAIGN;
@@ -40,7 +38,6 @@ public class ListCampaignsController implements Serializable {
     }
 
     public void doDeleteCampaign(Campaign campaign) {
-        this.campaignToDelete = campaign;
         System.out.println("Aktion zum löschen vorgemerkt");
     }
 
