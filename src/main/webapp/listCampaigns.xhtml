@@ -10,7 +10,7 @@
             <h1>#{msg['listCampaigns.my_campaigns']}</h1>
 
             <h:form>
-                <p:dataTable value="#{campaignListProducer.campaigns}" var="campaign">
+                <p:dataTable value="#{campaigns}" var="campaign">
                     <p:column>
                         <p:commandButton onclick="confirmation.show()"
                                          actionListener="#{listCampaignsController.doDeleteCampaign(campaign)}"
@@ -47,7 +47,6 @@
                 </p:dataTable>
                 <p:commandButton value="#{msg['listCampaigns.add_campaign']}" ajax="false"
                                  action="#{listCampaignsController.doAddCampaign}"/>
-
                 <p:confirmDialog message="#{msg['listCampaigns.ask_delete_campaign']}"
                                  header="#{msg['listCampaigns.delete_campaign']}" severity="alert"
                                  widgetVar="confirmation">
@@ -55,7 +54,6 @@
                                      actionListener="#{listCampaignsController.commitDeleteCampaign}"/>
                     <p:commandButton value="#{msg['listCampaigns.no']}" onclick="confirmation.hide()"/>
                 </p:confirmDialog>
-
             </h:form>
         </ui:define>
     </ui:composition>

@@ -2,14 +2,14 @@ package de.dpunkt.myaktion.controller;
 
 import de.dpunkt.myaktion.data.CampaignProducer;
 
-import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 
-@SessionScoped
+@ViewScoped
 @Named
 public class EditDonationFormController implements Serializable {
 
@@ -20,16 +20,14 @@ public class EditDonationFormController implements Serializable {
 
     @Inject
     private CampaignProducer campaignProducer;
+    @Inject
+    private HttpServletRequest req;
 
     public String doOk() {
         return Pages.LIST_CAMPAIGNS;
     }
 
     private String getAppUrl() {
-        HttpServletRequest req =
-                (HttpServletRequest) FacesContext.getCurrentInstance()
-                        .getExternalContext().getRequest();
-
         String scheme = req.getScheme();
         String serverName = req.getServerName();
         int serverPort = req.getServerPort();
